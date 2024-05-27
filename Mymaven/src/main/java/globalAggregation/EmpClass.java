@@ -29,8 +29,11 @@ public void display()
 	public static void main(String[] args) {
 		AddressClass ad1= new AddressClass("house1","street1","districtone",682302);
 		EmpClass em1= new EmpClass(101,"Rosh","Manager",ad1);
-		em1.display();
+		AddressClass ad12= new AddressClass("house11","street121","district12one",682302);
+		EmpClass em2= new EmpClass(103,"Jins","Manager",ad12);
 		
+		em1.display();
+		em2.display();
 
 	}
 
