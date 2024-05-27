@@ -8,7 +8,7 @@ public class ChildClass implements Parent1,Parent2{ //public class ChildClass im
 		//child1.display();
 Parent1 p1=new ChildClass();
 p1.print();//while creating interface reference, we need to give classname of childclass, interface dont have constructor, so we give class constructor
-p1.display();// this is because, we created refernce for parent1 , for parent 2, we need to create another reference.
+//p1.display();// this is because, we created refernce for parent1 , for parent 2, we need to create another reference.
 	}
 	
 
