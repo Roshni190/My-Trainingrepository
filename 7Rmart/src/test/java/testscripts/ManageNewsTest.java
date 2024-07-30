@@ -6,14 +6,15 @@ import org.testng.annotations.Test;
 
 import pages.Loginpage;
 import pages.ManageNewsPage;
+import utilities.ExcelUtiltiy;
 
 public class ManageNewsTest extends Base {
 
 	@Test
 public void verifywhetherUserAbletoGotoManageNewsPageByclickingManageNewsMoreinfolink() {
-	String username="admin";
-	String password="admin";
-	String managenewsurl="https://groceryapp.uniqassosiates.com/admin/list-news";
+	String username=ExcelUtiltiy.getString(1, 0, "LoginPage") ;
+	String password=ExcelUtiltiy.getString(1, 1, "LoginPage") ;
+	String managenewsurl=ExcelUtiltiy.getString(1, 0, "ManageNewsPage") ;
 	Loginpage loginpage=new Loginpage(driver);
 	loginpage.enterUserNameonUserNamefield(username).enterPasswordonPasswordfield(password).submitButtonfield();
 	loginpage.navigateToManageNewsPage(managenewsurl);
@@ -22,10 +23,10 @@ public void verifywhetherUserAbletoGotoManageNewsPageByclickingManageNewsMoreinf
 	assertTrue(managenewspage," User unable to go to Manage News Page by clicking on Manage News Page More info link");
 	}
 public void verifywhetherUserAbletoAddNewsSuccessfullyinManageNewsPage() {
-	String username="admin";
-	String password="admin";
-	String managenewsurl="https://groceryapp.uniqassosiates.com/admin/list-news";
-	String news="Test news";
+	String username=ExcelUtiltiy.getString(1, 0, "LoginPage") ;
+	String password=ExcelUtiltiy.getString(1, 0, "LoginPage") ;
+	String managenewsurl=ExcelUtiltiy.getString(1, 0, "ManageNewsPage") ;
+	String news=ExcelUtiltiy.getString(1, 1, "ManageNewsPage") ;
 	Loginpage loginpage=new Loginpage(driver);
 	loginpage.enterUserNameonUserNamefield(username).enterPasswordonPasswordfield(password).submitButtonfield();
 	loginpage.navigateToManageNewsPage(managenewsurl);
