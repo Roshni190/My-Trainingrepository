@@ -5,10 +5,13 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
+import utilities.PageUtilities;
+import utilities.WaitUtility;
+
 public class Loginpage { //in page we write test step
 	public WebDriver driver;
-	
-	
+	PageUtilities pageutilities;
+	WaitUtility waitutility;
 	public Loginpage(WebDriver driver)//constructor
 	{
 	this.driver=driver;
@@ -22,14 +25,18 @@ public class Loginpage { //in page we write test step
 
 	
 	public Loginpage enterUserNameonUserNamefield(String username) { //access modifier- we give as class name for chaining.
-		usernamefield.sendKeys(username);
+		PageUtilities pageutilities=new PageUtilities();
+		pageutilities.sendKeysToElement(usernamefield, username);
+		
 		return this;
 	}
 	public Loginpage enterPasswordonPasswordfield(String password) {
-		passwordfield.sendKeys(password);
+		waitutility.waitUsingElementToBePresent(driver, passwordfield);
+		pageutilities.sendKeysToElement(passwordfield, password);
 		return this;
 	}
 	public Loginpage submitButtonfield() {
+		waitutility.waitUsingElementToBePresent(driver, submitbutton);
 		submitbutton.click();
 		return this;
 	}
@@ -43,6 +50,16 @@ public class Loginpage { //in page we write test step
     	boolean alertstatus=alertbox.isDisplayed();
         return alertstatus;
     }
+	    public void navigateToManageNewsPage(String managenewsurl)
+	    {
+	    	driver.navigate().to(managenewsurl);
+	    }
+
+	    public void navigateToManageCatrgoryPage(String managecategoryurl)
+	    {
+	    	driver.navigate().to(managecategoryurl);
+	    }
+
     
 }
 

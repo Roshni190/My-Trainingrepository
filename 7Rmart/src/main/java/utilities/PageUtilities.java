@@ -87,8 +87,6 @@ public void doubleClick(WebDriver driver, WebElement element) {
 //JavaScript Executor
 public void scrollToView(WebDriver driver, WebElement element) {
     JavascriptExecutor js = (JavascriptExecutor) driver;
-    js.executeScript("window.scrollBy(0,250)", "");
-	js.executeScript("window.scrollBy(0,-250)", "");
 	js.executeScript("window.scrollBy(0,document.body.scrollHeight)", "");
 }
 //Checkbox and Radio Button
@@ -107,25 +105,11 @@ public void selectRadioButton(WebElement radioButton) {
     if (!radioButton.isSelected()) {
         radioButton.click();
     }
+   
 }
 
-//File upload using Robot class
-public void fileUploadRobotclass() throws AWTException {
-	StringSelection ss = new StringSelection("C:\\Users\\Roshni\\Desktop\\test.pdf"); 
-		Toolkit.getDefaultToolkit().getSystemClipboard().setContents(ss, null); 
-		Robot robot=new Robot(); 
-		robot.delay(250); 
-		robot.keyPress(KeyEvent.VK_ENTER); 
-		robot.keyRelease(KeyEvent.VK_ENTER); 
-	    robot.keyPress(KeyEvent.VK_CONTROL); 
-		robot.keyPress(KeyEvent.VK_V); 
-		robot.keyRelease(KeyEvent.VK_V); 
-		robot.keyRelease(KeyEvent.VK_CONTROL); 
-		robot.keyPress(KeyEvent.VK_ENTER); 
-		robot.delay(90); 
-		robot.keyRelease(KeyEvent.VK_ENTER);
-					
 }
+
  					
-}
+
 

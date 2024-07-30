@@ -17,17 +17,14 @@ public class ManageNewsPage {
 	PageFactory.initElements(driver,this);
 	PageUtilities pageutilities=new PageUtilities();
 	}
-	@FindBy(xpath="//i[@class='fa fa-newspaper widget-stat-icon']") WebElement Managenewslink;
+	
 	@FindBy(xpath="//h1[@class='m-0 text-dark']") WebElement Managenewslabel;
 	@FindBy(xpath="//a[@class='btn btn-rounded btn-danger']") WebElement New;
 	@FindBy(xpath="//textarea[@id='news']") WebElement Enternewsfield;
 	@FindBy(xpath="//button[@class='btn btn-danger']") WebElement Save;
 	@FindBy(xpath="//div[@class='alert alert-success alert-dismissible']") WebElement Alertdisplayingsuccessful;
 
-public ManageNewsPage clickonManageNewsLink() {
-	Managenewslink.click();
-	return this;
-}
+
 public ManageNewsPage clickonNewButton() {
 	New.click();
 	return this;

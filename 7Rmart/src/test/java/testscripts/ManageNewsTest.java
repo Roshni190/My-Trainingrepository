@@ -13,23 +13,26 @@ public class ManageNewsTest extends Base {
 public void verifywhetherUserAbletoGotoManageNewsPageByclickingManageNewsMoreinfolink() {
 	String username="admin";
 	String password="admin";
+	String managenewsurl="https://groceryapp.uniqassosiates.com/admin/list-news";
 	Loginpage loginpage=new Loginpage(driver);
 	loginpage.enterUserNameonUserNamefield(username).enterPasswordonPasswordfield(password).submitButtonfield();
+	loginpage.navigateToManageNewsPage(managenewsurl);
 	ManageNewsPage managenewsPage=new ManageNewsPage(driver);
-	managenewsPage.clickonManageNewsLink();
 	boolean managenewspage=managenewsPage.isManageNewsLabelDisplayed();
 	assertTrue(managenewspage," User unable to go to Manage News Page by clicking on Manage News Page More info link");
 	}
-	public void verifywhetherUserAbletoAddNewsSuccessfullyinManageNewsPage() {
-		String username="admin";
-		String password="admin";
-		String news="Test news";
-		Loginpage loginpage=new Loginpage(driver);
-		loginpage.enterUserNameonUserNamefield(username).enterPasswordonPasswordfield(password).submitButtonfield();
-		ManageNewsPage managenewsPage=new ManageNewsPage(driver);
-		managenewsPage.clickonManageNewsLink().clickonNewButton().enterNewsField(news);
-		boolean newsaddedsuccessfullalert=managenewsPage.isNewsCreated();
-		assertTrue(newsaddedsuccessfullalert," User unable to Add News in Manage News Page");
+public void verifywhetherUserAbletoAddNewsSuccessfullyinManageNewsPage() {
+	String username="admin";
+	String password="admin";
+	String managenewsurl="https://groceryapp.uniqassosiates.com/admin/list-news";
+	String news="Test news";
+	Loginpage loginpage=new Loginpage(driver);
+	loginpage.enterUserNameonUserNamefield(username).enterPasswordonPasswordfield(password).submitButtonfield();
+	loginpage.navigateToManageNewsPage(managenewsurl);
+	ManageNewsPage managenewsPage=new ManageNewsPage(driver);
+	managenewsPage.clickonNewButton().enterNewsField(news);
+	boolean newsaddedsuccessfullalert=managenewsPage.isNewsCreated();
+	assertTrue(newsaddedsuccessfullalert," User unable to Add News in Manage News Page");
 		}
 		}
 

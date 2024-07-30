@@ -13,6 +13,7 @@ public WebDriver driver;
 public void initializeBrowser() {
 driver=new ChromeDriver(); //driver=new EdgeDriver();loading the driver or browser initialisation. Chrome driver is a class launched by webdriver.
 driver.get("https://selenium.qabible.in/");// to launch url
+driver.navigate().to("https://groceryapp.uniqassosiates.com/admin");
 driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));//implicit wait
 driver.manage().window().maximize();// to maximise the window
 	}
