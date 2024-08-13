@@ -17,11 +17,11 @@ public class Loginpage { //in page we write test step
 	this.driver=driver;
 	PageFactory.initElements(driver,this);//this is a class and have a method initelements which is used to initiliaze elements in your pagefile
 	}
-	@FindBy(xpath="//input[@placeholder='Username']") WebElement usernamefield;//equavalent to driver.findelementby
-	@FindBy(xpath="//input[@placeholder='password']") WebElement passwordfield;
-	@FindBy(xpath="//button[@type='submit']") WebElement submitbutton;
-	@FindBy(xpath="//aside[@class='main-sidebar elevation-4 sidebar-light-dark']") WebElement loginpage;
-	@FindBy(xpath="//div[@class=\"alert alert-danger alert-dismissible\"]") WebElement alertbox;
+	@FindBy(xpath="//input[@placeholder='Username']")private WebElement usernamefield;//equavalent to driver.findelementby
+	@FindBy(xpath="//input[@name='password']")private WebElement passwordfield;
+	@FindBy(xpath="//button[@type='submit']") private WebElement submitbutton;
+	@FindBy(xpath="//aside[@class='main-sidebar elevation-4 sidebar-light-dark']")private WebElement loginpage;
+	@FindBy(xpath="//div[@class=\"alert alert-danger alert-dismissible\"]")private WebElement alertbox;
 
 	
 	public Loginpage enterUserNameonUserNamefield(String username) { //access modifier- we give as class name for chaining.
@@ -31,12 +31,11 @@ public class Loginpage { //in page we write test step
 		return this;
 	}
 	public Loginpage enterPasswordonPasswordfield(String password) {
-		waitutility.waitUsingElementToBePresent(driver, passwordfield);
-		pageutilities.sendKeysToElement(passwordfield, password);
+		passwordfield.sendKeys(password);
 		return this;
 	}
 	public Loginpage submitButtonfield() {
-		waitutility.waitUsingElementToBePresent(driver, submitbutton);
+		
 		submitbutton.click();
 		return this;
 	}
@@ -50,17 +49,35 @@ public class Loginpage { //in page we write test step
     	boolean alertstatus=alertbox.isDisplayed();
         return alertstatus;
     }
-	    public void navigateToManageNewsPage(String managenewsurl)
+	    public ManageNewsPage navigateToManageNewsPage(String managenewsurl)
 	    {
 	    	driver.navigate().to(managenewsurl);
+			return new ManageNewsPage(driver);
 	    }
 
-	    public void navigateToManageCatrgoryPage(String managecategoryurl)
+	    public ManageCategoryPage navigateToManageCategoryPage(String managecategoryurl)
 	    {
 	    	driver.navigate().to(managecategoryurl);
+	    	return new ManageCategoryPage(driver);
+	    			
+	    }
+	    public AdminPage navigateToAdminpage(String adminurl)
+	    {
+	    	driver.navigate().to(adminurl);
+	    	return new AdminPage(driver);
 	    }
 
-    
+	    public SubCategoryPage navigateToSubCategorypage(String subcategoryurl )
+	    {
+	    	driver.navigate().to(subcategoryurl);
+	    	return new SubCategoryPage(driver);
+	    }
+	    public ManageFooterTextPage navigateToManagefooter(String managefooterurl)
+	    {
+	    	driver.navigate().to(managefooterurl);
+	    	return new ManageFooterTextPage(driver);
+	    }
+		
 }
 
 	

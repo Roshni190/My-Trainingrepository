@@ -13,7 +13,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.Select;
 
-public class PageUtilities { //to make this as common
+public class PageUtilities { 
 	
 	public void selectValueUsingSelectbyVisibleText(WebElement element, String text) {
 	Select select=new Select(element);
@@ -28,12 +28,12 @@ public class PageUtilities { //to make this as common
         Select select = new Select(element);
         select.selectByValue(value);
     }
-  //Frames
+  
     public void switchToFrameByIndex(WebDriver driver, int index) {
     driver.switchTo().frame(index);
 }
 
-//Alerts
+
 public void acceptAlert(WebDriver driver) {
     driver.switchTo().alert().accept();
 }
@@ -46,7 +46,7 @@ public void sendTextToAlert(WebDriver driver, String text) {
     driver.switchTo().alert().sendKeys(text);
 }
 
-//Navigation
+
 public void navigateTo(WebDriver driver, String url) {
     driver.navigate().to(url);
 }
@@ -59,12 +59,12 @@ public String getPageSource(WebDriver driver) {
     return driver.getPageSource();
 }
 
-//Sending keys
+
 public void sendKeysToElement(WebElement element, String keys) {
     element.sendKeys(keys);
 }
 
-//Actions class methods
+
 public void moveToElement(WebDriver driver, WebElement element) {
     Actions actions = new Actions(driver);
     actions.moveToElement(element).perform();
@@ -84,12 +84,12 @@ public void doubleClick(WebDriver driver, WebElement element) {
     actions.doubleClick(element).perform();
 }
 
-//JavaScript Executor
+
 public void scrollToView(WebDriver driver, WebElement element) {
     JavascriptExecutor js = (JavascriptExecutor) driver;
 	js.executeScript("window.scrollBy(0,document.body.scrollHeight)", "");
 }
-//Checkbox and Radio Button
+
 public void checkCheckbox(WebElement checkbox) {
     if (!checkbox.isSelected()) {
         checkbox.click();
